@@ -27,9 +27,9 @@
       
     }
     catch(PDOException $e){
-        //$message = "There has been a problem. The system administrator has been contacted. Please try again later.";
-        //error_log($e->getMessage());			//Delivers a developer defined error message to the PHP log file at c:\xampp/php\logs\php_error_log
-        //echo $message;
+        $message = "There has been a problem. The system administrator has been contacted. Please try again later.";
+        error_log($e->getMessage());			//Delivers a developer defined error message 
+        
         $numDeleted = -1; // flag tells that deleted didn't work
     }
     
@@ -69,31 +69,32 @@
 
     <body>
     <?php
-        
         if($numDeleted > 0){
           // if good delete comfirmation and provide link back to login
-          echo  "<h1 class='text-danger text-center'>Your Event " . $deleteName .  " Was Successfully Deleted!</h1>
-                <h2 class='text-center'>You will be redirected momentarily.<br>  
-                If you are not redirected please click the link below.</h2>
-                <div class='d-flex justify-content-center'>
-                  <button class='btn btn-outline-primary text-center'><a href='selectEvents.php'>Redirect</a></button>
-                </div>";
-          header('refresh:7; url=http://jeremybrannen.info/wdv341/unit_15/selectEvents.php');
+    ?>      
+            <h1 class='text-danger text-center'>Your Event " <?php $deleteName ?>  " Was Successfully Deleted!</h1>
+            <h2 class='text-center'>You will be redirected momentarily.<br>  
+                If you are not redircted please click the link below.
+            </h2>
+            <div class='d-flex justify-content-center'>
+              <button class='btn btn-outline-primary text-center'><a href='selectEvents.php'>Redirect</a></button>
+            </div>
+    <?php 
+            header('refresh:7; url=//localhost/wdv341/unit 15 SQL Delete/Examples/selectEvents.php');
         }else{
-          // else display error msg, provide link back to selectEvents to try again
-          echo "<h1 class='text-danger text-center'>Delete Unsuccessful!  Please Try Again.</h1>
-                <h2 class='text-center'>You will be redirected momentarily.<br>  
-                If you are not redirected please click the link below.</h2>
-                <div class='d-flex justify-content-center'>
-                  <button class='btn btn-outline-primary text-center'><a href='selectEvents.php'>Redirect</a></button>
-                </div>";
-          header('refresh:7; url=http://jeremybrannen.info/wdv341/unit_15/selectEvents.php');
+        // else display error msg, provide link back to selectEvents to try again
+    ?>   
+            <h1 class='text-danger text-center'>Delete Unsuccessful!  Please Try Again.</h1>
+            <h2 class='text-center'>You will be redirected momentarily.<br>  
+                If you are not redircted please click the link below.
+            </h2>
+            <div class='d-flex justify-content-center'>
+              <button class='btn btn-outline-primary text-center'><a href='selectEvents.php'>Redirect</a></button>
+            </div>
+    <?php
+            header('refresh:7; url=//localhost/wdv341/unit 15 SQL Delete/Examples/selectEvents.php');
         }
-        
     ?>
-    
-
-
     </body>
 
 </html>

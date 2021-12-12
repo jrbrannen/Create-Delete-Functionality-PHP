@@ -22,7 +22,7 @@
         <title>Select Events</title>
 
         <!--Jeremy Brannen
-            WDV341 Delete Event-->
+            WDV341 7-1 Select Events-->
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -54,6 +54,15 @@
         <h1 class="text-center"> WDV341 Intro PHP </h1>
         <h2 class="text-center"> Select Events-PHP </h2>
 
+        <?php
+            if(!empty($_GET['eventId'])){
+              $id = $_GET['eventId'];
+              $name = $_GET['eventName'];
+        ?>
+            <h2 class="text-primary text-center">Event Named <?php echo $name ?> Is Updated</h2>
+        <?php 
+            }
+        ?>
         <table class="table"> <!-- Displays a table to the browser with headers-->
             <thead>
                 <tr>
@@ -61,8 +70,6 @@
                     <th scope="col">Event</th>
                     <th scope="col">Time</th>
                     <th scope="col">Date</th>
-                    <th>Update Events</th>
-                    <th>Delete Events</th>
                 </tr>
             </thead>
 
@@ -75,12 +82,18 @@
                         <td><?php echo $result['events_name']; ?></td>
                         <td><?php echo $result['events_time']; ?></td>
                         <td><?php echo $result['events_date']; ?></td>
-                        <!-- pass the selected event id and event name as a get parameter on the url -->
+                         <!-- pass the selected event id as a get parameter on the url -->
                         <td><?php echo "<a href=updateEvent.php?eventId=" . $result['events_id'] . ">Update Link</a>" ?></td>
-                        <td><?php echo "<a href=deleteEvent.php?eventId=" . $result['events_id'] . "&eventName=" . $result['events_name'] . ">Delete Link</a>" ?></td>
+                        <td><?php echo "<a href=deleteEvent.php?eventId=" . $result['events_id'] . ">Delete Link</a>" ?></td>
+
+                        <?php 
+                            
+
+
+                        ?>
                     </tr>
                 </tbody>
-      
+            
             <?php
                 } // end of foreach()        
             ?>
@@ -89,7 +102,7 @@
         <footer>
 
             <p class="text-center">
-                <a target="_blank"href="https://github.com/jrbrannen/Select-Events-PHP.git">GitHub Repo Link</a>
+                <a target="_blank"href="https://github.com/jrbrannen/Create-Delete-Functionality-PHP.git">GitHub Repo Link</a>
             </p>
             
             <p class="text-center">
