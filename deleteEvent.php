@@ -72,7 +72,7 @@
         if($numDeleted > 0){
           // if good delete comfirmation and provide link back to login
     ?>      
-            <h1 class='text-danger text-center'>Your Event " <?php $deleteName ?>  " Was Successfully Deleted!</h1>
+            <h1 class='text-danger text-center'>Your Event " <?php echo $deleteName ?>  " Was Successfully Deleted!</h1>
             <h2 class='text-center'>You will be redirected momentarily.<br>  
                 If you are not redircted please click the link below.
             </h2>
